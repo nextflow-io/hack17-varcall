@@ -1,0 +1,4 @@
+= TODO
+
+* [x] update references to workshop
+* [x] update description
