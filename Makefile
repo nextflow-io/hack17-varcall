@@ -46,7 +46,7 @@ $(PDF_FILE): $(README)
 
 $(CHEATSHEET_PDF): $(CHEATSHEET)
 	@GEM_HOME=$(GEMS) $(GEMS)/bin/asciidoctor-pdf $(CHEATSHEET) -a pdf-stylesdir=$(PDF)/style -a pdf-style=$(PDF_STYLE) -a pdf-fontsdir=$(PDF)/font
-		@echo == Written file $(CHEATSHEET_PDF)
+	@echo == Written file $(CHEATSHEET_PDF)
 
 setup: $(GEMS)/bin/asciidoctor $(GEMS)/bin/asciidoctor-pdf
 
@@ -76,9 +76,8 @@ deploy: html $(DEPLOY_LIST) check_deploy
 deploy-draft: draft $(DEPLOY_LIST) check_deploy
 	rsync -ar --files-from=$(DEPLOY_LIST) . $(RNASEQ_DEPLOY_DIR)
 
-
 clean:
-	rm -f $(HTML_FILE) $(CHEATSHEET_HTML) $(PDF_FILE) $(CHEATSHEET_PDF) $(DEPLOY_LIST)
+	rm -f $(HTML_FILE) $(CHEATSHEET_HTML) $(PDF_FILE) $(CHEATSHEET_PDF) $(DEPLOY_LIST) $(SOLUTIONS_HTML)
 
 deepclean: clean
 	rm -rf $(GEMS) bin .bundle
