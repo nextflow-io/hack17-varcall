@@ -1,0 +1,58 @@
+= Nextflow Hackaton {year} image:nextflow_logo.png[Logo,150,150,float="right"]
+:docinfo: private
+:year: 2017
+:hide-uri-scheme:
+:nofooter:
+:icons: font
+:toclevels: 2
+:imagesdir: ./assets/
+ifeval::["{backend}" == "html5"]
+:stylesdir: ./css
+:stylesheet: crg.css
+:linkcss:
+:source-highlighter: highlight.js
+:highlightjs-theme: github
+:toc: left
+:linkattrs:
+:cheatsheet: cheatsheet.adoc#,here
+endif::[]
+ifeval::["{backend}" == "pdf"]
+:cheatsheet: cheatsheet,at the end of this document
+endif::[]
+ifdef::draft[]
+
+image::draft.png[DRAFT,150,150,float="right",align="center"]
+include::todo.adoc[leveloffset=+1]
+endif::draft[]
+
+This workshop will introduce the best practices proposed to tackle the problem of irreproducible NGS data analyses and allow to make large omics workflows portable across HPC clusters and cloud environments.
+
+The practical session will go through the step by step implementation of a pipeline for standard [crg]#Variant Calling Analyses with RNA-seq data#. For this purpose attendees will use Nextflow, a framework for computational pipelines that simplifies the development and deployment of NGS pipelines in a portable manner across different execution environments.
+
+Slides of the workshop can be found at the following links:
+
+* link:workshop.introduction.pdf[Introduction^]
+* link:workshop.nextflow.pdf[Nextflow^]
+
+== Cheatsheet
+
+NOTE: A cheatsheet with basic Linux and Cluster commands is available <<{cheatsheet}>>.
+
+:sectnums:
+
+:leveloffset: +1
+
+include::datasets.adoc[]
+
+include::workflow.adoc[]
+
+include::setup.adoc[]
+
+include::implementation.adoc[]
+
+ifeval::["{backend}" == "pdf"]
+[[cheatsheet]]
+include::cheatsheet.adoc[]
+endif::[]
+
+:leveloffset: -1

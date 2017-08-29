@@ -1,0 +1,6 @@
+.DS_Store
+.bundle
+*.html
+deploy-list.txt
+env
+!*docinfo*
