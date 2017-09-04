@@ -1,4 +1,4 @@
-= NGS 2017 Workshop Solutions
+= Nextflow 2017 Workshop Solutions
 :hide-uri-scheme:
 :nofooter:
 :icons: font
