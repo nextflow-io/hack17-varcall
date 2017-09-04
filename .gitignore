@@ -5,3 +5,4 @@
 deploy-list.txt
 env
 !*docinfo*
+!docs/*.html
