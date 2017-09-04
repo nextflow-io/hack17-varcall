@@ -20,14 +20,14 @@ Only reads mapped to the http://genome-euro.ucsc.edu/cgi-bin/hgTracks?db=hg19&la
 |===
 | ENCODE ID | Cellular fraction | replicate ID | file names
 
-.2+| https://www.encodeproject.org/experiments/ENCSR000COQ/[ENCSR000COQ]
-.2+| Whole Cell
-| 1
-l| ENCSR000COQ1_1.fastq.gz
+.2+|https://www.encodeproject.org/experiments/ENCSR000COQ/[ENCSR000COQ]
+.2+|Whole Cell
+|1
+l|ENCSR000COQ1_1.fastq.gz
 ENCSR000COQ1_2.fastq.gz
 
-| 2
-l| ENCSR000COQ2_1.fastq.gz
+|2
+l|ENCSR000COQ2_1.fastq.gz
 ENCSR000COQ2_2.fastq.gz
 
 .2+|https://www.encodeproject.org/experiments/ENCSR000CPO/[ENCSR000CPO]
