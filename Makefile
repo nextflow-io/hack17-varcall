@@ -62,12 +62,11 @@ $(DEPLOY_LIST):
 	@echo $(CHEATSHEET_HTML) >> $(DEPLOY_LIST)
 	@echo $(ASSETS_DIR) >> $(DEPLOY_LIST)
 	@echo $(STYLESHEETS_DIR) >> $(DEPLOY_LIST)
-	@echo $(SOLUTIONS_DIR)/.htaccess >> $(DEPLOY_LIST)
 	@echo $(SOLUTIONS_HTML) | tr ' ' '\n' >> $(DEPLOY_LIST)
 
 check_deploy:
 ifndef RNASEQ_DEPLOY_DIR
-	$(error Undefined variable RNASEQ_DEPLOY_DIR)
+RNASEQ_DEPLOY_DIR := ./docs
 endif
 
 deploy: html $(DEPLOY_LIST) check_deploy
