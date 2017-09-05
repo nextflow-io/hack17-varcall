@@ -10,4 +10,4 @@ To generate the `index.html` file with the documentation do:
 make html
 ```
 
-The published version of this documentation can be found [here](https://nextflow-io.github.io/hack17-varcall).
+The HTML version can be found [here](https://nextflow-io.github.io/hack17-varcall).
