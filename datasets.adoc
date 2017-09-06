@@ -1,5 +1,7 @@
 = Data Description
 
+The input data used to test the pipeline implementation is described below. For the purpose of this project, only a subset of the original data is used for most of the data types.
+
 Genome assembly::
 
 `genome.fa`
