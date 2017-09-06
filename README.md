@@ -1,4 +1,4 @@
-# Nextflow Hackaton 2017
+# Nextflow Workshop 2017
 
 ## Project 2: Variant Calling pipeline for RNA data
 
