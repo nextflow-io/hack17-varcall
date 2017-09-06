@@ -1,4 +1,4 @@
-= NGS {year} Workshop Cheatsheet
+= Nextflow Hackaton {year} Cheatsheet
 :sectnums:
 :hide-uri-scheme:
 :nofooter:
