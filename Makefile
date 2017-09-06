@@ -1,25 +1,25 @@
-.PHONY: all html check_deploy deploy clean deepclean draft set-draft
+.PHONY: all html pdf pages clean deepclean draft set-draft
 
 ifndef GEMS
 GEMS = env
 endif
-HTML_FILE = index.html
-PDF_FILE = hands-on.pdf
-SOLUTIONS_DIR = solutions
-CHEATSHEET_HTML = cheatsheet.html
-CHEATSHEET_PDF = cheatsheet.pdf
+DOCS_DIR = docs
+HTML_FILE = $(DOCS_DIR)/index.html
+PDF_FILE = $(DOCS_DIR)/hands-on.pdf
+SOLUTIONS_DIR = $(DOCS_DIR)/solutions
+CHEATSHEET_HTML = $(DOCS_DIR)/cheatsheet.html
+CHEATSHEET_PDF = $(DOCS_DIR)/cheatsheet.pdf
 STYLESHEETS_DIR = css
 ASSETS_DIR = assets
 README = hands-on.adoc
 CHEATSHEET = cheatsheet.adoc
 SOLUTIONS = $(wildcard $(SOLUTIONS_DIR)/*.adoc)
 SOLUTIONS_HTML = $(SOLUTIONS:%.adoc=%.html)
-DEPLOY_LIST = deploy-list.txt
 PDF = pdf
 PDF_STYLE = crg
 ATTRS = -a allow-uri-read
 
-all: html pdf
+all: html
 
 draft: set-draft html 	
 set-draft:
@@ -64,16 +64,10 @@ $(DEPLOY_LIST):
 	@echo $(STYLESHEETS_DIR) >> $(DEPLOY_LIST)
 	@echo $(SOLUTIONS_HTML) | tr ' ' '\n' >> $(DEPLOY_LIST)
 
-check_deploy:
-ifndef RNASEQ_DEPLOY_DIR
-RNASEQ_DEPLOY_DIR := ./docs
-endif
-
-deploy: html $(DEPLOY_LIST) check_deploy
-	rsync -ar --files-from=$(DEPLOY_LIST) . $(RNASEQ_DEPLOY_DIR)
-
-deploy-draft: draft $(DEPLOY_LIST) check_deploy
-	rsync -ar --files-from=$(DEPLOY_LIST) . $(RNASEQ_DEPLOY_DIR)
+pages:
+	@echo == Updating github pages
+	@git ci -m "Update docs" ./docs
+	@git push
 
 clean:
 	rm -f $(HTML_FILE) $(CHEATSHEET_HTML) $(PDF_FILE) $(CHEATSHEET_PDF) $(DEPLOY_LIST) $(SOLUTIONS_HTML)

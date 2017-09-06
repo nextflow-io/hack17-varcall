@@ -104,7 +104,7 @@ heading:
 title_page:
   align: right
   logo:
-    top: 60%
+    top: 65%
     image: image:crg_blue_logo.png[scaledwidth=25%]
   title:
     top: 55%

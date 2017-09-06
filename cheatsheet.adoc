@@ -3,9 +3,11 @@
 :hide-uri-scheme:
 :nofooter:
 :icons: font
+ifeval::["{backend}" == "html5"]
 :stylesdir: ./css
 :stylesheet: crg.css
 :linkcss:
+endif::[]
 :year: 2017
 
 :leveloffset: +1
