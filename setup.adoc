@@ -17,7 +17,7 @@ Connect to the AWS cloud login instance by using the following command:
 
 [source, cmd]
 ----
-ssh login@52.215.251.199
+ssh login@34.252.30.18
 ----
 
 Then launch a new AWS instance running the command shown below and follow
