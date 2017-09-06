@@ -16,17 +16,20 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_cheatsheet">Cheatsheet</a></li>
 <li><a href="#_data_description">1. Data Description</a></li>
 <li><a href="#_worflow_description">2. Worflow Description</a>
 <ul class="sectlevel2">
 <li><a href="#_sofware_manuals">2.1. Sofware manuals</a></li>
-<li><a href="#_preparing_data">2.2. Preparing data</a></li>
-<li><a href="#_mapping_rna_seq_reads_to_the_reference">2.3. Mapping RNA-seq reads to the reference</a></li>
-<li><a href="#_split_n_trim_and_reassign_mapping_qualities">2.4. Split&#8217;N&#8217;Trim and reassign mapping qualities</a></li>
-<li><a href="#_base_recalibration">2.5. Base Recalibration</a></li>
-<li><a href="#_variant_calling_and_variant_filtering">2.6. Variant Calling and Variant filtering</a></li>
-<li><a href="#_variant_post_processing">2.7. Variant Post-processing</a></li>
+<li><a href="#_pipeline_steps">2.2. Pipeline steps</a>
+<ul class="sectlevel3">
+<li><a href="#_preparing_data">2.2.1. Preparing data</a></li>
+<li><a href="#_mapping_rna_seq_reads_to_the_reference">2.2.2. Mapping RNA-seq reads to the reference</a></li>
+<li><a href="#_split_n_trim_and_reassign_mapping_qualities">2.2.3. Split&#8217;N&#8217;Trim and reassign mapping qualities</a></li>
+<li><a href="#_base_recalibration">2.2.4. Base Recalibration</a></li>
+<li><a href="#_variant_calling_and_variant_filtering">2.2.5. Variant Calling and Variant filtering</a></li>
+<li><a href="#_variant_post_processing">2.2.6. Variant Post-processing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_environment_setup">3. Environment Setup</a>
@@ -42,17 +45,62 @@
 <li><a href="#_pipeline_implementaton">4. Pipeline Implementaton</a>
 <ul class="sectlevel2">
 <li><a href="#_data_preparation">4.1. Data preparation</a></li>
-<li><a href="#_input_parameters">4.2. Input parameters</a></li>
-<li><a href="#_process_1a">4.3. Process 1A</a></li>
-<li><a href="#_process_1b">4.4. Process 1B</a></li>
-<li><a href="#_process_1c">4.5. Process 1C</a></li>
-<li><a href="#_process_1d">4.6. Process 1D</a></li>
-<li><a href="#_process_2">4.7. Process 2</a></li>
-<li><a href="#_process_3">4.8. Process 3</a></li>
-<li><a href="#_process_4">4.9. Process 4</a></li>
-<li><a href="#_process_5">4.10. Process 5</a></li>
-<li><a href="#_processes_6a_and_6b">4.11. Processes 6A and 6B</a></li>
-<li><a href="#_process_6c">4.12. Process 6C</a></li>
+<li><a href="#_input_parameters">4.2. Input parameters</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_1">4.2.1. Problem #1</a></li>
+</ul>
+</li>
+<li><a href="#_process_1a">4.3. Process 1A</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_2">4.3.1. Problem #2</a></li>
+</ul>
+</li>
+<li><a href="#_process_1b">4.4. Process 1B</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_3">4.4.1. Problem #3</a></li>
+</ul>
+</li>
+<li><a href="#_process_1c">4.5. Process 1C</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_4">4.5.1. Problem #4</a></li>
+</ul>
+</li>
+<li><a href="#_process_1d">4.6. Process 1D</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_5">4.6.1. Problem #5</a></li>
+</ul>
+</li>
+<li><a href="#_process_2">4.7. Process 2</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_6">4.7.1. Problem #6</a></li>
+</ul>
+</li>
+<li><a href="#_process_3">4.8. Process 3</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_7">4.8.1. Problem #7</a></li>
+</ul>
+</li>
+<li><a href="#_process_4">4.9. Process 4</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_8">4.9.1. Problem #8</a></li>
+</ul>
+</li>
+<li><a href="#_process_5">4.10. Process 5</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_9">4.10.1. Problem #9</a></li>
+</ul>
+</li>
+<li><a href="#_processes_6a_and_6b">4.11. Processes 6A and 6B</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_10">4.11.1. Problem #10</a></li>
+<li><a href="#_problem_11">4.11.2. Problem #11</a></li>
+</ul>
+</li>
+<li><a href="#_process_6c">4.12. Process 6C</a>
+<ul class="sectlevel3">
+<li><a href="#_problem_12">4.12.1. Problem #12</a></li>
+</ul>
+</li>
 <li><a href="#_results_overview">4.13. Results overview</a></li>
 <li><a href="#_bonus_step">4.14. Bonus step</a></li>
 </ul>
@@ -64,33 +112,19 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This workshop will introduce the best practices proposed to tackle the problem of irreproducible NGS data analyses and allow to make large omics workflows portable across HPC clusters and cloud environments.</p>
+<p>This is the documentation for <a href="https://github.com/nextflow-io/hack17/issues/2" target="_blank" rel="noopener">Project 2</a> of the Nexflow Hackaton 2017. This project will cover the implementation of a Variant Calling analisys pipeline for RNAseq data based on GATK best practices and using Nextflow as pipeline framework.</p>
 </div>
 <div class="paragraph">
-<p>The practical session will go through the step by step implementation of a pipeline for standard <span class="crg">Variant Calling Analyses with RNA-seq data</span>. For this purpose attendees will use Nextflow, a framework for computational pipelines that simplifies the development and deployment of NGS pipelines in a portable manner across different execution environments.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_cheatsheet">Cheatsheet</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-A cheatsheet with basic Linux and Cluster commands is available <a href="cheatsheet.html">here</a>.
-</td>
-</tr>
-</table>
+<p>It is supposed to be a tutorial project for newbie Nextflow users who are interested in learning how to assemble a real world genomic pipeline with Nextflow, manage dependencies by using container technologies (Docker &amp; Singularity) and deploy the pipeline execution in a reproducible manner to the AWS cloud.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_data_description">1. Data Description</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The input data used to test the pipeline implementation is described below. For the purpose of this project, only a subset of the original data is used for most of the data types.</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Genome assembly</dt>
@@ -250,7 +284,12 @@ These regions were identified with DNAse and ChiP-seq samples over ~60 human tis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_preparing_data">2.2. Preparing data</h3>
+<h3 id="_pipeline_steps">2.2. Pipeline steps</h3>
+<div class="paragraph">
+<p>In order to get a general idea of the workflow, all the composing steps, together with the corresponding commands, are explained in the next sections.</p>
+</div>
+<div class="sect3">
+<h4 id="_preparing_data">2.2.1. Preparing data</h4>
 <div class="paragraph">
 <p>This step prepares input files for the analysis. Genome indexes are created and variants overlapping blacklisted regions are filtered out.</p>
 </div>
@@ -287,8 +326,8 @@ java -jar picard.jar CreateSequenceDictionary R= genome.fa O= genome.dict</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_mapping_rna_seq_reads_to_the_reference">2.3. Mapping RNA-seq reads to the reference</h3>
+<div class="sect3">
+<h4 id="_mapping_rna_seq_reads_to_the_reference">2.2.2. Mapping RNA-seq reads to the reference</h4>
 <div class="paragraph">
 <p>To align RNA-seq reads to the genome we&#8217;re using STAR 2-pass approach. The first alignment creates a table with splice-junctions that is used to guide final alignments. The alignments at both steps are done with default parameters.</p>
 </div>
@@ -349,8 +388,8 @@ java -jar picard.jar CreateSequenceDictionary R= genome.fa O= genome.dict</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_split_n_trim_and_reassign_mapping_qualities">2.4. Split&#8217;N&#8217;Trim and reassign mapping qualities</h3>
+<div class="sect3">
+<h4 id="_split_n_trim_and_reassign_mapping_qualities">2.2.3. Split&#8217;N&#8217;Trim and reassign mapping qualities</h4>
 <div class="paragraph">
 <p>The RNA-seq reads overlapping exon-intron junctions can produce false positive variants due to inaccurate splicing. To solve this problem the GATK team recommend to hard-clip any sequence that overlap intronic regions and developed a speciall tool for this purpose: <code>SplitNCigarReads</code>. The tool identifies Ns in the CIGAR string of the alignment and split reads at this position so that few new reads are created.</p>
 </div>
@@ -372,8 +411,8 @@ java -jar picard.jar CreateSequenceDictionary R= genome.fa O= genome.dict</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_base_recalibration">2.5. Base Recalibration</h3>
+<div class="sect3">
+<h4 id="_base_recalibration">2.2.4. Base Recalibration</h4>
 <div class="paragraph">
 <p>The proposed worflow does not include an indel realigment step, which is an optional step in the GATK best practices. We excluded that since it is quite time-intensive and does not really improve variant calling.</p>
 </div>
@@ -402,8 +441,8 @@ java -jar picard.jar CreateSequenceDictionary R= genome.fa O= genome.dict</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_variant_calling_and_variant_filtering">2.6. Variant Calling and Variant filtering</h3>
+<div class="sect3">
+<h4 id="_variant_calling_and_variant_filtering">2.2.5. Variant Calling and Variant filtering</h4>
 <div class="paragraph">
 <p>The variant calling is done on the uniquely aligned reads only in order to reduce the number of false positive variants called:</p>
 </div>
@@ -455,8 +494,8 @@ java -jar GenomeAnalysisTK.jar -T HaplotypeCaller \
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_variant_post_processing">2.7. Variant Post-processing</h3>
+<div class="sect3">
+<h4 id="_variant_post_processing">2.2.6. Variant Post-processing</h4>
 <div class="paragraph">
 <p>For downstream analysis we&#8217;re considering only sites that pass all filters and are covered with at least 8 reads:</p>
 </div>
@@ -528,6 +567,7 @@ gghist.R -i AF.4R -o AF.histogram.pdf</pre>
                -o ASE.tsv \
                -I bam.list \
                -sites known_snps.vcf</pre>
+</div>
 </div>
 </div>
 </div>
