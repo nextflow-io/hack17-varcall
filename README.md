@@ -4,7 +4,7 @@
 
 This repository contains the source files for the documentation of the hackaton project.
 
-To generate the `index.html` file with the documentation do:
+To generate the html documentation do:
 
 ```
 make
