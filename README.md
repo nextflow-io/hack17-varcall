@@ -6,13 +6,13 @@ This repository contains the source files for the documentation of the hackaton 
 
 To generate the html documentation do:
 
-```
+```bash
 make
 ```
 
 In order to update the GitHub Pages website run:
 
-```
+```bash
 make pages
 ```
 
