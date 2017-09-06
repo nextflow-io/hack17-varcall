@@ -56,13 +56,6 @@ $(GEMS): $(GEMS)/bin/bundle
 $(GEMS)/bin/bundle:
 	@GEM_HOME=$(GEMS) gem install bundler
 
-$(DEPLOY_LIST):
-	@echo $(HTML_FILE) >> $(DEPLOY_LIST)
-	@echo $(CHEATSHEET_HTML) >> $(DEPLOY_LIST)
-	@echo $(ASSETS_DIR) >> $(DEPLOY_LIST)
-	@echo $(STYLESHEETS_DIR) >> $(DEPLOY_LIST)
-	@echo $(SOLUTIONS_HTML) | tr ' ' '\n' >> $(DEPLOY_LIST)
-
 pages: html
 	@echo == Updating github pages
 	@git ci -m "Update docs" ./docs
