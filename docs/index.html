@@ -602,7 +602,7 @@ tools already installed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-cmd hljs" data-lang="cmd">ssh login@52.215.251.199</code></pre>
+<pre class="highlightjs highlight"><code class="language-cmd hljs" data-lang="cmd">ssh login@34.252.30.18</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1030,6 +1030,9 @@ details about using the <code>resume</code> option.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/anxious_advice.html">Solution</a></p>
+</div>
 <hr>
 </div>
 </div>
@@ -1132,6 +1135,9 @@ Launching `main.nf` [adoring_wilson] - revision: 89dbc97b8e
 [17/b0eae4] Submitted process &gt; 1A_prepare_genome_samtools</pre>
 </div>
 </div>
+<div class="paragraph">
+<p><a href="solutions/busy_building.html">Solution</a></p>
+</div>
 <hr>
 </div>
 </div>
@@ -1222,6 +1228,9 @@ process '1B_prepare_genome_picard' {
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/cooing_clock.html">Solution</a></p>
+</div>
 <hr>
 </div>
 </div>
@@ -1297,6 +1306,10 @@ The output of the STAR genomeGenerate command is specified here as <code>genome_
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/discreet_direction.html">Solution</a></p>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
@@ -1404,6 +1417,9 @@ process '1D_prepare_vcf_file' {
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-cmd hljs" data-lang="cmd">nextflow run main.nf -resume</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p><a href="solutions/expensive_ear.html">Solution</a></p>
 </div>
 <div class="paragraph">
 <p>Congratulations! Part 1 is now complete.</p>
@@ -1520,6 +1536,9 @@ The final command produces an bam index which is the full filename with an addit
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/fat_floor.html">Solution</a></p>
+</div>
 <hr>
 <div class="paragraph">
 <p>The next step is a filtering step using GATK. For each sample, we split all the reads that contain
@@ -1623,6 +1642,9 @@ The GATK command above automatically creates a bam index (.bai) of the split.bam
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p><a href="solutions/gentle_garden.html">Solution</a></p>
 </div>
 <hr>
 <div class="paragraph">
@@ -1734,6 +1756,9 @@ a set containing the filtered/recoded VCF file and the tab index (TBI) file from
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/hulking_hospital.html">Solution</a></p>
+</div>
 <hr>
 <div class="paragraph">
 <p>Now we are ready to perform the variant calling with GATK.</p>
@@ -1832,6 +1857,9 @@ It follows from this that process 4 is run one time per replicate and process 5 
   """
 }</pre>
 </div>
+</div>
+<div class="paragraph">
+<p><a href="solutions/imported_iron.html">Solution</a></p>
 </div>
 <hr>
 </div>
@@ -1949,6 +1977,9 @@ process '6B_prepare_vcf_for_ase' {
 }</pre>
 </div>
 </div>
+<div class="paragraph">
+<p><a href="solutions/jumping_jack.html">Solution</a></p>
+</div>
 <hr>
 <div class="paragraph">
 <p>The final step is the GATK ASEReadCounter.</p>
@@ -2064,6 +2095,9 @@ for details on the specific operators.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><a href="solutions/kind_koala.html">Solution</a></p>
+</div>
 <hr>
 </div>
 </div>
@@ -2114,6 +2148,9 @@ the `grouped_vcf_bam_bai_ch`channel</p>
                   -I bam.list \
                   -sites ${vcf}</pre>
 </div>
+</div>
+<div class="paragraph">
+<p><a href="solutions/laughing_lynx.html">Solution</a></p>
 </div>
 <div class="paragraph">
 <p>Congratulations! If you made it this far you now have all the basics to create your own Nextflow workflows.</p>
