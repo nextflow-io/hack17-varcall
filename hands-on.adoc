@@ -1,4 +1,4 @@
-= Nextflow Hackaton {year} image:nextflow_logo.png[Logo,150,150,float="right"]
+= Nextflow Hackaton {year} image:nextflow_logo.png[Logo,300,100,float="right", role="nflogo"]
 :docinfo: private
 :year: 2017
 :hide-uri-scheme:
