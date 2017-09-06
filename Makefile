@@ -63,7 +63,7 @@ $(DEPLOY_LIST):
 	@echo $(STYLESHEETS_DIR) >> $(DEPLOY_LIST)
 	@echo $(SOLUTIONS_HTML) | tr ' ' '\n' >> $(DEPLOY_LIST)
 
-pages:
+pages: html
 	@echo == Updating github pages
 	@git ci -m "Update docs" ./docs
 	@git push
