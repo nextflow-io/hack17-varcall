@@ -121,6 +121,7 @@ nextflow run main.nf -resume
 TIP: See https://www.nextflow.io/docs/latest/getstarted.html?highlight=resume#modify-and-resume[here] for more
 details about using the `resume` option.
 
+<<solutions/anxious_advice.adoc#, Solution>>
 
 ***
 
@@ -197,6 +198,8 @@ Launching `main.nf` [adoring_wilson] - revision: 89dbc97b8e
 
 ----
 
+<<solutions/busy_building.adoc#, Solution>>
+
 ***
 == Process 1B
 [discrete]
@@ -251,6 +254,8 @@ process '1B_prepare_genome_picard' {
 
 NOTE: `.baseName` returns the filename without the file suffix. If `"${genome}"` is `human.fa`, then `"${genome.baseName}.dict"` would be `human.dict`.
 
+<<solutions/cooing_clock.adoc#, Solution>>
+
 ***
 
 == Process 1C
@@ -304,6 +309,10 @@ process '1C_prepare_star_genome_index' {
 ----
 
 TIP: The output of the STAR genomeGenerate command is specified here as `genome_dir`.
+
+<<solutions/discreet_direction.adoc#, Solution>>
+
+***
 
 == Process 1D
 [discrete]
@@ -373,6 +382,7 @@ Try run the pipeline from the project directory with:
 nextflow run main.nf -resume
 ----
 
+<<solutions/expensive_ear.adoc#, Solution>>
 
 Congratulations! Part 1 is now complete.
 
@@ -465,6 +475,8 @@ process '2_rnaseq_mapping_star' {
 
 TIP: The final command produces an bam index which is the full filename with an additional `.bai` suffix.
 
+<<solutions/fat_floor.adoc#, Solution>>
+
 ***
 
 The next step is a filtering step using GATK. For each sample, we split all the reads that contain
@@ -536,6 +548,8 @@ process '3_rnaseq_gatk_splitNcigar' {
 ----
 
 TIP: The GATK command above automatically creates a bam index (.bai) of the split.bam output file
+
+<<solutions/gentle_garden.adoc#, Solution>>
 
 ***
 
@@ -622,6 +636,8 @@ process '4_rnaseq_gatk_recalibrate' {
 <2> The unique bam file
 <3> The index of the unique bam file (bam file name + `.bai`)
 
+<<solutions/hulking_hospital.adoc#, Solution>>
+
 ***
 
 Now we are ready to perform the variant calling with GATK.
@@ -699,6 +715,8 @@ process '5_rnaseq_call_variants' {
   """
 }
 ----
+
+<<solutions/imported_iron.adoc#, Solution>>
 
 ***
 
@@ -796,6 +814,8 @@ process '6B_prepare_vcf_for_ase' {
 }
 ----
 
+<<solutions/jumping_jack.adoc#, Solution>>
+
 ***
 The final step is the GATK ASEReadCounter.
 
@@ -861,6 +881,8 @@ bam_for_ASE_ch
 
 CAUTION: `left` and `right` above are arbitary names. From the phase operator documentation, we see that phase returns pairs of items. So here `left` originates from contents of the `bam_for_ASE_ch` channel and `right` originates from the contents of `vcf_for_ASE` channel.
 
+<<solutions/kind_koala.adoc#, Solution>>
+
 ***
 
 == Process 6C
@@ -899,6 +921,8 @@ You should construct the process and run the pipeline in its entirety.
                   -I bam.list \
                   -sites ${vcf}
 ----
+
+<<solutions/laughing_lynx.adoc#, Solution>>
 
 Congratulations! If you made it this far you now have all the basics to create your own Nextflow workflows.
 
