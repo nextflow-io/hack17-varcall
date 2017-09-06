@@ -37,9 +37,4 @@ include::setup.adoc[]
 
 include::implementation.adoc[]
 
-ifeval::["{backend}" == "pdf"]
-[[cheatsheet]]
-include::cheatsheet.adoc[]
-endif::[]
-
 :leveloffset: -1
