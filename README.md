@@ -7,7 +7,13 @@ This repository contains the source files for the documentation of the hackaton 
 To generate the `index.html` file with the documentation do:
 
 ```
-make html
+make
+```
+
+In order to update the GitHub Pages website run:
+
+```
+make pages
 ```
 
 The HTML version can be found [here](https://nextflow-io.github.io/hack17-varcall).
