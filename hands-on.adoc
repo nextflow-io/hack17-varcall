@@ -4,7 +4,7 @@
 :hide-uri-scheme:
 :nofooter:
 :icons: font
-:toclevels: 2
+:toclevels: 3
 :imagesdir: ./assets/
 ifeval::["{backend}" == "html5"]
 :stylesdir: ./css

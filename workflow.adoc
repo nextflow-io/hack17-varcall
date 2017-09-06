@@ -22,7 +22,11 @@ Documentation for all software used in the workflow can be found at the followin
 ** https://software.broadinstitute.org/gatk/gatkdocs/3.6-0/org_broadinstitute_gatk_tools_walkers_filters_VariantFiltration.php[`VariantFiltration`]
 ** https://software.broadinstitute.org/gatk/gatkdocs/3.6-0/org_broadinstitute_gatk_tools_walkers_rnaseq_ASEReadCounter.php[`ASEReadCounter`]
 
-== Preparing data
+== Pipeline steps
+
+In order to get a general idea of the workflow, all the composing steps, together with the corresponding commands, are explained in the next sections.
+
+=== Preparing data
 
 This step prepares input files for the analysis. Genome indexes are created and variants overlapping blacklisted regions are filtered out.
 
@@ -50,7 +54,7 @@ Variants overlapping blacklisted regions are then filtered in order to reduce fa
           > known_variants.filtered.recode.vcf.gz
 
 
-== Mapping RNA-seq reads to the reference
+=== Mapping RNA-seq reads to the reference
 
 To align RNA-seq reads to the genome we're using STAR 2-pass approach. The first alignment creates a table with splice-junctions that is used to guide final alignments. The alignments at both steps are done with default parameters.
 
@@ -101,7 +105,7 @@ Index the resulting bam file:
 samtools index final_alignments.bam
 ----
 
-== Split'N'Trim and reassign mapping qualities
+=== Split'N'Trim and reassign mapping qualities
 
 The RNA-seq reads overlapping exon-intron junctions can produce false positive variants due to inaccurate splicing. To solve this problem the GATK team recommend to hard-clip any sequence that overlap intronic regions and developed a speciall tool for this purpose: `SplitNCigarReads`. The tool identifies Ns in the CIGAR string of the alignment and split reads at this position so that few new reads are created.
 
@@ -119,7 +123,7 @@ java -jar GenomeAnalysisTK.jar -T SplitNCigarReads \
                   --fix_misencoded_quality_scores
 ----
 
-== Base Recalibration
+=== Base Recalibration
 
 The proposed worflow does not include an indel realigment step, which is an optional step in the GATK best practices. We excluded that since it is quite time-intensive and does not really improve variant calling.
 
@@ -146,7 +150,7 @@ java -jar GenomeAnalysisTK.jar -T BaseRecalibrator \
 
 ----
 
-== Variant Calling and Variant filtering
+=== Variant Calling and Variant filtering
 
 The variant calling is done on the uniquely aligned reads only in order to reduce the number of false positive variants called:
 
@@ -183,7 +187,7 @@ Variant filtering is done as recommended in the GATK best practices:
                   -o final.vcf
 ----
 
-== Variant Post-processing
+=== Variant Post-processing
 
 For downstream analysis we're considering only sites that pass all filters and are covered with at least 8 reads:
 
