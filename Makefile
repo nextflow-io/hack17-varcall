@@ -6,7 +6,7 @@ endif
 DOCS_DIR = docs
 HTML_FILE = $(DOCS_DIR)/index.html
 PDF_FILE = $(DOCS_DIR)/hands-on.pdf
-SOLUTIONS_DIR = $(DOCS_DIR)/solutions
+SOLUTIONS_DIR = solutions
 CHEATSHEET_HTML = $(DOCS_DIR)/cheatsheet.html
 CHEATSHEET_PDF = $(DOCS_DIR)/cheatsheet.pdf
 STYLESHEETS_DIR = css
@@ -14,13 +14,12 @@ ASSETS_DIR = assets
 README = hands-on.adoc
 CHEATSHEET = cheatsheet.adoc
 SOLUTIONS = $(wildcard $(SOLUTIONS_DIR)/*.adoc)
-SOLUTIONS_HTML = $(SOLUTIONS:%.adoc=%.html)
+SOLUTIONS_HTML = $(SOLUTIONS:%.adoc=$(DOCS_DIR)/%.html)
 PDF = pdf
 PDF_STYLE = crg
 ATTRS = -a allow-uri-read
 
 all: html
-
 draft: set-draft html 	
 set-draft:
 	$(eval ATTRS += -a draft)
@@ -35,7 +34,7 @@ $(CHEATSHEET_HTML): $(CHEATSHEET) *.adoc
 	@echo == Written file $(CHEATSHEET_HTML)
 
 $(SOLUTIONS_HTML): ATTRS = -a nofooter -a linkcss -a stylesdir=../css -a stylesheet=crg.css -a hide-uri-scheme -a icons=font -a source-highlighter=highlight.js -a highlightjs-theme=github
-$(SOLUTIONS_HTML): %.html: %.adoc solutions/*.adoc
+$(SOLUTIONS_HTML): $(DOCS_DIR)/%.html: %.adoc solutions/*.adoc
 	@GEM_HOME=$(GEMS) $(GEMS)/bin/asciidoctor $< $(ATTRS) -o $@
 	@echo == Written file $@
 
