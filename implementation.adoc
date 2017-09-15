@@ -505,7 +505,7 @@ the genome dictionary made with picard +
 a set containg replicate id, aligned bam file and aligned bam file index from the STAR mapping
 
 Output::
-a set containing the sample id, the split bam file and the split bam index file
+a set containing the replicate id, the split bam file and the split bam index file
 
 
 === Problem #7
